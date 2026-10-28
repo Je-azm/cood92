@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天府成都 · 蓉城之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #fff7e6, #ffecd2);
+            padding: 30px 15px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #c81623;
+            margin-bottom:10px;
+        }
+        header p{
+            font-size:18px;
+            color:#555;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor:pointer;
+        }
+        .card:hover{
+            transform: translateY(-10px);
+            box-shadow:0 12px 24px rgba(0,0,0,0.15);
+        }
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+        .card-text{
+            padding:20px;
+        }
+        .card h3{
+            font-size:22px;
+            color:#222;
+            margin-bottom:10px;
+        }
+        .card p{
+            color:#666;
+            line-height:1.7;
+        }
+        footer{
+            text-align:center;
+            margin-top:50px;
+            color:#777;
+        }
+        /* 弹窗样式 */
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.6);
+            padding:30px;
+        }
+        .modal-content{
+            max-width:800px;
+            margin:0 auto;
+            background:#fff;
+            border-radius:20px;
+            padding:30px;
+        }
+        .modal-content img{
+            width:100%;
+            border-radius:12px;
+            margin-bottom:20px;
+        }
+        .modal-content h2{
+            color:#c81623;
+            text-align:center;
+            margin-bottom:16px;
+        }
+        .modal-content p{
+            font-size:17px;
+            line-height:1.8;
+            color:#444;
+            margin:12px 0;
+        }
+        .close{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 24px;
+            background:#c81623;
+            color:#fff;
+            border-radius:10px;
+            text-decoration:none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>天府成都 · 蓉城之旅</h1>
+        <p>一座来了就不想离开的城市</p >
+    </header>
+
+    <div class="container">
+        <!-- 大熊猫基地 点击打开弹窗详情 -->
+        <div class="card" onclick="openModal('panda')">
+            <img src="1110.jpg_wh300.jpg" alt="大熊猫繁育研究基地">
+            <div class="card-text">
+                <h3>大熊猫繁育研究基地</h3>
+                <p>国宝大熊猫的家园，可以看见软萌可爱的大熊猫、小熊猫，是来成都必打卡的地方。</p >
+            </div>
+        </div>
+
+        <!-- 宽窄巷子 -->
+        <div class="card" onclick="openModal('alley')">
+            <img src="CghzflWwykuAaWSdAAy3zlxvxJ8954_D_10000_1200.jpg" alt="宽窄巷子">
+            <div class="card-text">
+                <h3>宽窄巷子</h3>
+                <p>老成都民居建筑群，宽巷、窄巷、井巷，感受川西院落、盖碗茶与川式烟火。</p >
+            </div>
+        </div>
+
+        <!-- 锦里 -->
+        <div class="card" onclick="openModal('jinli')">
+            <img src="OIP-C.webp" alt="锦里古街">
+            <div class="card-text">
+                <h3>锦里古街</h3>
+                <p>紧邻武侯祠，夜晚红灯笼绝美。小吃、川剧变脸、三国文化氛围感拉满。</p >
+            </div>
+        </div>
+
+        <!-- 武侯祠 -->
+        <div class="card" onclick="openModal('wuhou')">
+            <img src="8ba0-isuiksp1283948.jpg" alt="武侯祠">
+            <div class="card-text">
+                <h3>武侯祠</h3>
+                <p>纪念诸葛亮的三国圣地，红墙竹影，历史厚重，适合喜欢三国文化的游客。</p >
+            </div>
+        </div>
+
+        <!-- 春熙路 -->
+        <div class="card" onclick="openModal('chunxi')">
+            <img src="OIP-C.jpg" alt="春熙路IFS">
+            <div class="card-text">
+                <h3>春熙路 IFS</h3>
+                <p>成都市中心商圈，标志性爬墙大熊猫雕塑，逛街打卡美食好去处。</p >
+            </div>
+        </div>
+
+        <!-- 都江堰 -->
+        <div class="card" onclick="openModal('dujiangyan')">
+            <img src="OIP-C (2).webp" alt="都江堰">
+            <div class="card-text">
+                <h3>都江堰</h3>
+                <p>千年水利工程，山水秀丽，世界文化遗产，离成都市区一小时车程。</p >
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>成都旅游介绍网页｜专升本网页设计作业</p >
+    </footer>
+
+    <!-- 详情弹窗区域，全部写在同一个页面里！不用新建文件 -->
+    <div id="panda" class="modal">
+        <div class="modal-content">
+            <h2>大熊猫繁育研究基地</h2>
+            <img src="1110.jpg_wh300.jpg" alt="大熊猫繁育研究基地">
+            <p>成都大熊猫繁育研究基地，是中国政府实施大熊猫等濒危野生动物迁地保护工程的主要研究基地之一。</p >
+            <p>在这里可以看到幼年、成年大熊猫，圆滚滚十分可爱，还能偶遇小熊猫。最佳游览时间是早上，大熊猫更加活跃。</p >
+            <p>📍地址：成都市成华区外北熊猫大道1375号</p >
+            <span class="close" onclick="closeModal('panda')">关闭详情</span>
+        </div>
+    </div>
+
+    <div id="alley" class="modal">
+        <div class="modal-content">
+            <h2>宽窄巷子</h2>
+            <img src="CghzflWwykuAaWSdAAy3zlxvxJ8954_D_10000_1200.jpg" alt="宽窄巷子">
+            <p>宽窄巷子由宽巷子、窄巷子、井巷子平行排列组成，全为青黛砖瓦的仿古四合院落。</p >
+            <p>这里保留老成都的市井文化，可以喝茶、采耳，品尝特色小吃，感受川西民居独特魅力。</p >
+            <p>📍地址：成都市青羊区金河路口宽窄巷子</p >
+            <span class="close" onclick="closeModal('alley')">关闭详情</span>
+        </div>
+    </div>
+
+    <div id="jinli" class="modal">
+        <div class="modal-content">
+            <h2>锦里古街</h2>
+            <img src="OIP-C.webp" alt="锦里古街">
+            <p>锦里紧邻武侯祠，是一条仿古商业街，夜晚挂满红灯笼，氛围感拉满。</p >
+            <p>街上有三大炮、糖油果子等成都小吃，还可以看川剧变脸，感受浓厚的三国文化。</p >
+            <p>📍地址：成都市武侯区武侯祠大街231号</p >
+            <span class="close" onclick="closeModal('jinli')">关闭详情</span>
+        </div>
+    </div>
+
+    <div id="wuhou" class="modal">
+        <div class="modal-content">
+            <h2>武侯祠</h2>
+            <img src="8ba0-isuiksp1283948.jpg" alt="武侯祠">
+            <p>武侯祠是纪念三国时期蜀汉丞相诸葛亮的祠堂，是国内最负盛名的三国遗迹博物馆。</p >
+            <p>红墙夹道竹影摇曳，是网红打卡点。里面保存大量碑刻、塑像，历史厚重。</p >
+            <p>📍地址：成都市武侯区武侯祠大街231号</p >
+            <span class="close" onclick="closeModal('wuhou')">关闭详情</span>
+        </div>
+    </div>
+
+    <div id="chunxi" class="modal">
+        <div class="modal-content">
+            <h2>春熙路 IFS</h2>
+            <img src="OIP-C.jpg" alt="春熙路 IFS">
+            <p>春熙路是成都最繁华的市中心商圈，IFS爬墙大熊猫雕塑是标志性打卡点。</p >
+            <p>这里商场云集，美食众多，奶茶、火锅、小吃应有尽有，是来成都逛街必去之地。</p >
+            <p>📍地址：成都市锦江区红星路三段</p >
+            <span class="close" onclick="closeModal('chunxi')">关闭详情</span>
+        </div>
+    </div>
+
+    <div id="dujiangyan" class="modal">
+        <div class="modal-content">
+            <h2>都江堰</h2>
+            <img src="OIP-C (2).webp" alt="都江堰">
+            <p>都江堰是战国时期李冰父子修建的千年无坝水利工程，世界文化遗产。</p >
+            <p>岷江江水在这里分流，灌溉成都平原，造就天府之国。景区山水秀丽，空气清新。</p >
+            <p>📍地址：成都市都江堰市公园路</p >
+            <span class="close" onclick="closeModal('dujiangyan')">关闭详情</span>
+        </div>
+    </div>
+
+    <script>
+        //打开弹窗
+        function openModal(id){
+            document.getElementById(id).style.display="block";
+        }
+        //关闭弹窗
+        function closeModal(id){
+            document.getElementById(id).style.display="none";
+        }
+    </script>
+</body>
+</html>
